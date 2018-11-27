@@ -6,6 +6,9 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/assets/css/reset.css'
+// import http from '@/plugins/http.js'
+
+// Vue.use(http)
 
 //引用插件
 Vue.use(ElementUI)
