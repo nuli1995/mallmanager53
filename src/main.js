@@ -14,6 +14,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import '@/assets/css/reset.css'
 
 import router from './router'
+import moment from 'moment'
 
 // 适用vue插件
 Vue.use(ElementUI)
@@ -22,6 +23,9 @@ Vue.use(MyServerHttp)
 
 Vue.config.productionTip = false
 
+Vue.filter('fmtdate',(v)=>{
+  return moment(v).format('YYYY-MM-DD')
+})
 
 /* eslint-disable no-new */
 new Vue({

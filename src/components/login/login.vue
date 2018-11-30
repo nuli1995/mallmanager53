@@ -46,8 +46,9 @@ export default {
       if (status === 200) {
         // 登录成功
         // 0. 保存token
-        const token=res.data.data.taken;
+        const token=res.data.data.token;
         localStorage.setItem('token', token)
+        console.log(token)
         // 1. 跳转home
         this.$router.push({ name: 'home' })
         // 2. 提示成功
