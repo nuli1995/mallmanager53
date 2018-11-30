@@ -48,6 +48,16 @@
       </el-table-column>
     </el-table>
     <!-- 分页 -->
+
+    <el-pagination
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+      :current-page="pagenum"
+      :page-sizes="[2, 4, 6, 8]"
+      :page-size="2"
+      layout="total, sizes, prev, pager, next, jumper"
+      :total="total">
+      </el-pagination>
   </el-card>
 </template>
 
@@ -55,10 +65,10 @@
 export default {
   data() {
     return {
-      query: "",
+      query: "", 
       pagenum: 1,
       pagesize: 3,
-      total: -1,
+      total: 32,
       data: []
     };
   },
@@ -66,6 +76,19 @@ export default {
     this.getUserList();
   },
   methods: {
+    // 分页相关的方法
+      handleSizeChange(val) {
+        console.log(`每页 ${val} 条`);
+        this.pagesize = val
+        this.pagenum = 1; 
+        this.getUserList()
+      },
+      handleCurrentChange(val) {
+        console.log(`当前页: ${val}`);
+        this.pagenum= val
+        this.getUserList()
+
+      },
     //获取用户列表的请求
 
     async getUserList() {
